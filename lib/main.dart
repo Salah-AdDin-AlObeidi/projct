@@ -22,8 +22,8 @@ class MyApp extends StatelessWidget {
           child: Stack(
             children: [
               Positioned(
-                left: 500,
-                bottom: 25,
+                left: MediaQuery.of(context).size.width * 0.37,
+                bottom: MediaQuery.of(context).size.height * 0.04,
                 child: MouseRegion(
                   cursor: SystemMouseCursors.click,
                   child: GestureDetector(
@@ -49,8 +49,8 @@ class MyApp extends StatelessWidget {
               ),
 
               Positioned(
-                left: 580,
-                bottom: 25,
+                left: MediaQuery.of(context).size.width * 0.42,
+                bottom: MediaQuery.of(context).size.height * 0.04,
                 child: MouseRegion(
                   cursor: SystemMouseCursors.click, // 👈 يجعل المؤشر على شكل يد
                   child: GestureDetector(
@@ -76,8 +76,8 @@ class MyApp extends StatelessWidget {
               ),
 
               Positioned(
-                left: 660,
-                bottom: 25,
+                left: MediaQuery.of(context).size.width * 0.46,
+                bottom: MediaQuery.of(context).size.height * 0.04,
                 child: MouseRegion(
                   cursor: SystemMouseCursors.click, // 👈 يجعل المؤشر على شكل يد
                   child: GestureDetector(
@@ -103,8 +103,8 @@ class MyApp extends StatelessWidget {
               ),
 
               Positioned(
-                left: 730,
-                bottom: 25,
+                left: MediaQuery.of(context).size.width * 0.50,
+                bottom: MediaQuery.of(context).size.height * 0.04,
                 child: MouseRegion(
                   cursor: SystemMouseCursors.click, // 👈 يجعل المؤشر على شكل يد
                   child: GestureDetector(
@@ -124,21 +124,6 @@ class MyApp extends StatelessWidget {
                       color: Colors.white,
                       size: 20,
                     ),
-                  ),
-                ),
-              ),
-
-              Positioned(
-                right: 130,
-                bottom: 25,
-                child: Container(
-                  width: 164,
-                  height: 40,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [Color(0xff194BFD), Color(0xffAD13FB)],
-                    ),
-                    borderRadius: BorderRadius.circular(29),
                   ),
                 ),
               ),
