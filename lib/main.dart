@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:mywebsite/MediaQuerys.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 void main() {
@@ -22,7 +23,11 @@ class MyApp extends StatelessWidget {
           child: Stack(
             children: [
               Positioned(
-                left: MediaQuery.of(context).size.width * 0.37,
+                left: Responsive.isDesktop(context)
+                    ? MediaQuery.of(context).size.width * 0.37
+                    : Responsive.isTablet(context)
+                    ? MediaQuery.of(context).size.width * 0.34
+                    : MediaQuery.of(context).size.width * 0.34,
                 bottom: MediaQuery.of(context).size.height * 0.04,
                 child: MouseRegion(
                   cursor: SystemMouseCursors.click,
@@ -49,7 +54,11 @@ class MyApp extends StatelessWidget {
               ),
 
               Positioned(
-                left: MediaQuery.of(context).size.width * 0.42,
+                left: Responsive.isDesktop(context)
+                    ? MediaQuery.of(context).size.width * 0.41
+                    : Responsive.isTablet(context)
+                    ? MediaQuery.of(context).size.width * 0.40
+                    : MediaQuery.of(context).size.width * 0.41,
                 bottom: MediaQuery.of(context).size.height * 0.04,
                 child: MouseRegion(
                   cursor: SystemMouseCursors.click, // 👈 يجعل المؤشر على شكل يد
@@ -76,7 +85,11 @@ class MyApp extends StatelessWidget {
               ),
 
               Positioned(
-                left: MediaQuery.of(context).size.width * 0.46,
+                left: Responsive.isDesktop(context)
+                    ? MediaQuery.of(context).size.width * 0.45
+                    : Responsive.isTablet(context)
+                    ? MediaQuery.of(context).size.width * 0.46
+                    : MediaQuery.of(context).size.width * 0.48,
                 bottom: MediaQuery.of(context).size.height * 0.04,
                 child: MouseRegion(
                   cursor: SystemMouseCursors.click, // 👈 يجعل المؤشر على شكل يد
@@ -103,7 +116,11 @@ class MyApp extends StatelessWidget {
               ),
 
               Positioned(
-                left: MediaQuery.of(context).size.width * 0.50,
+                left: Responsive.isDesktop(context)
+                    ? MediaQuery.of(context).size.width * 0.49
+                    : Responsive.isTablet(context)
+                    ? MediaQuery.of(context).size.width * 0.52
+                    : MediaQuery.of(context).size.width * 0.55,
                 bottom: MediaQuery.of(context).size.height * 0.04,
                 child: MouseRegion(
                   cursor: SystemMouseCursors.click, // 👈 يجعل المؤشر على شكل يد
