@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gap/flutter_gap.dart';
 import 'package:mywebsite/CenerViwe/Centerviwes.dart';
-import 'package:mywebsite/CenerViwe/TextsCenter';
+import 'package:mywebsite/CenerViwe/Poster.dart';
+import 'package:mywebsite/CenerViwe/TextsCenter.dart';
 
 import 'package:mywebsite/Sohcle.dart';
 
@@ -28,14 +29,8 @@ class MyApp extends StatelessWidget {
                 child: Sohcles(),
               ),
               Gap(100),
-              Container(
-                margin: EdgeInsets.only(left: 800),
-                child: Image(
-                  height: 50,
+              Posters(),
 
-                  image: AssetImage('assets/subtract.png'),
-                ),
-              ),
               Stack(
                 children: [
                   Gap(30),
@@ -45,7 +40,8 @@ class MyApp extends StatelessWidget {
 
                   FirstText(),
                   SecondText(),
-
+                 
+                  ExperienceText(),
                   // Positioned(
                   //   right: 50,
                   //   top: 15,
