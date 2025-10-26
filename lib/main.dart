@@ -34,13 +34,14 @@ class MyApp extends StatelessWidget {
               Stack(
                 children: [
                   Gap(30),
+
                   Centerviwes(),
 
                   Photos(),
 
                   FirstText(),
                   SecondText(),
-                 
+
                   ExperienceText(),
                   // Positioned(
                   //   right: 50,
@@ -74,6 +75,7 @@ class MyApp extends StatelessWidget {
                   //     ),
                   //   ),
                   // ),
+                  Posters2(),
                 ],
               ),
 
