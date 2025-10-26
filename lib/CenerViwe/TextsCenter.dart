@@ -61,6 +61,19 @@ class TextDimensions {
     }
   }
 
+  double get topThird {
+    final height = MediaQuery.of(context).size.height;
+    if (height >= 800 && height <= 1999) {
+      return height * 0.42; // 42% للشاشات الطويلة
+    } else if (Responsive.isDesktop(context)) {
+      return height * 0.43; // 37%
+    } else if (Responsive.isTablet(context)) {
+      return height * 0.35; // 32%
+    } else {
+      return height * 0.27; // 27% - mobile
+    }
+  }
+
   // لحجم الخط
   double get fontSizeFirst {
     final width = MediaQuery.of(context).size.width;
@@ -85,6 +98,19 @@ class TextDimensions {
       return 26;
     } else {
       return 20; // mobile
+    }
+  }
+
+  double get fontSizeThird {
+    final width = MediaQuery.of(context).size.width;
+    if (width >= 800 && width <= 1999) {
+      return 14; // حجم أصغر للشاشات الطويلة
+    } else if (Responsive.isDesktop(context)) {
+      return 13;
+    } else if (Responsive.isTablet(context)) {
+      return 9;
+    } else {
+      return 8; // mobile
     }
   }
 }
@@ -129,6 +155,35 @@ class SecondText extends StatelessWidget {
           color: Colors.blue,
           fontSize: dimensions.fontSizeSecond,
           fontWeight: FontWeight.bold,
+        ),
+      ),
+    );
+  }
+}
+
+/// 🔹 كلاس للنص الثالث "Experience Text"
+class ExperienceText extends StatelessWidget {
+  const ExperienceText({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final dimensions = TextDimensions(context);
+
+    return Positioned(
+      left: dimensions.left,
+      top: dimensions.topThird,
+      child: Container(
+        width: MediaQuery.of(context).size.width * 0.5, // 50% من عرض الشاشة
+        child: Text(
+          'Hello, I am a software engineer with two years of experience in\n.NET and databases, and some brief experience in Flutter.',
+          style: TextStyle(
+            color: Colors.white, // لون أبيض
+            fontSize: dimensions.fontSizeThird, // حجم خط أصغر
+            height: 1.4, // مسافة بين السطور
+          ),
+          softWrap: true, // السماح بكسر السطور
+          maxLines: 3, // أقصى عدد للسطور
+          overflow: TextOverflow.ellipsis, // ... إذا تجاوز النص المساحة
         ),
       ),
     );
