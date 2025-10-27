@@ -30,9 +30,9 @@ class SubtractDimensions {
     } else if (Responsive.isDesktop(context)) {
       return width * 0.60; // 60%
     } else if (Responsive.isTablet(context)) {
-      return width * 0.70; // 50%
+      return width * 0.70; // 70%
     } else {
-      return width * 0.70; // 40% - mobile
+      return width * 0.70; // 70% - mobile
     }
   }
 
@@ -50,6 +50,56 @@ class SubtractDimensions {
   }
 }
 
+/// 🔹 كلاس لحساب أبعاد الصورة الثانية (Subtract2)
+class Subtract2Dimensions {
+  final BuildContext context;
+  Subtract2Dimensions(this.context);
+
+  double get left {
+    final width = MediaQuery.of(context).size.width;
+
+    if (Responsive.isDesktop(context)) {
+      return width * 0.64; // 70% للشاشات الكبيرة
+    } else if (Responsive.isTablet(context)) {
+      return width * 0.65; // 62% للتابلت
+    } else if (width >= 800 && width <= 1999) {
+      return width * 0.64; // 64% للشاشات المتوسطة
+    } else {
+      return width * 0.54; // 54% للموبايل
+    }
+  }
+
+  double get height {
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
+
+    if (Responsive.isDesktop(context)) {
+      return 45;
+    } else if (Responsive.isTablet(context)) {
+      return 40;
+    } else if (width >= 800 && width <= 1999) {
+      return 55;
+    } else {
+      return 35;
+    }
+  }
+
+  double get top {
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
+
+    if (Responsive.isDesktop(context)) {
+      return height * 0.46;
+    } else if (Responsive.isTablet(context)) {
+      return height * 0.41;
+    } else if (width >= 800 && width <= 1999) {
+      return height * 0.66;
+    } else {
+      return height * 0.32;
+    }
+  }
+}
+
 class Posters extends StatelessWidget {
   const Posters({super.key});
 
@@ -57,11 +107,34 @@ class Posters extends StatelessWidget {
   Widget build(BuildContext context) {
     final dimensions = SubtractDimensions(context);
 
-    return Container(
-      margin: EdgeInsets.only(left: dimensions.left),
-      child: Image(
-        height: dimensions.height,
-        image: AssetImage('assets/subtract.png'),
+    return Positioned(
+      top: 20, // يمكنك تعديل الـ top حسب الحاجة
+      child: Container(
+        margin: EdgeInsets.only(left: dimensions.left),
+        child: Image(
+          height: dimensions.height,
+          image: AssetImage('assets/subtract.png'),
+        ),
+      ),
+    );
+  }
+}
+
+class Posters2 extends StatelessWidget {
+  const Posters2({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final dimensions = Subtract2Dimensions(context);
+
+    return Positioned(
+      top: dimensions.top, // استخدام الـ top المتجاوب
+      child: Container(
+        margin: EdgeInsets.only(left: dimensions.left),
+        child: Image(
+          height: dimensions.height,
+          image: AssetImage('assets/Subtract2.png'),
+        ),
       ),
     );
   }
