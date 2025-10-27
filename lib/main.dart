@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mywebsite/CenerViwe/Centerviwes.dart';
 import 'package:mywebsite/CenerViwe/Poster.dart';
 import 'package:mywebsite/CenerViwe/Skills/Skills.dart';
+import 'package:mywebsite/CenerViwe/Skills/ViweSkills/ViweSkills.dart';
 import 'package:mywebsite/CenerViwe/TextsCenter.dart';
 
 import 'package:mywebsite/Sohcle.dart';
@@ -56,211 +57,101 @@ class MyApp extends StatelessWidget {
                     style: TextStyle(color: Colors.blue, fontSize: 30),
                   ),
                   Gap(20),
-                  LayoutBuilder(
-                    builder: (context, constraints) {
-                      final double screenWidth = constraints.maxWidth;
-
-                      // تحديد نوع الجهاز بناءً على العرض
-                      final bool isMobile = screenWidth < 600;
-                      final bool isTablet =
-                          screenWidth >= 600 && screenWidth < 999;
-                      final bool isMediumScreen =
-                          screenWidth >= 900 && screenWidth < 1067;
-                      final bool isDesktop = screenWidth >= 1024;
-
-                      if (isMobile) {
-                        // للهواتف - عمودي
-                        return Column(
-                          children: [
-                            SkillCard(
-                              icon: FontAwesomeIcons.database,
-                              title: "SQL Server",
-                              description:
-                                  "I have experience in SQL Server, including designing tables and relationships, writing queries and stored procedures, using SSMS to manage databases, and integrating them with .NET applications.",
-                              backgroundColor: Color.fromARGB(255, 27, 27, 31),
-                              descriptionFontSize: 9,
-                              width: screenWidth * 0.9,
-                              height: 180,
-                            ),
-                            SizedBox(height: 16),
-                            SkillCard(
-                              icon: FontAwesomeIcons.code,
-                              title: "C# .NET",
-                              description:
-                                  "I have experience in C# .NET, including building desktop applications, working with ASP.NET and Web API, using for data access, and integrating with SQL Server databases.",
-                              backgroundColor: Color.fromARGB(255, 27, 27, 31),
-                              descriptionFontSize: 9,
-                              width: screenWidth * 0.9,
-                              height: 180,
-                            ),
-                            SizedBox(height: 16),
-                            SkillCard(
-                              icon: FontAwesomeIcons.mobileButton,
-                              title: "Flutter & Dart",
-                              description:
-                                  "I have basic experience in Flutter and Dart, including developing cross-platform mobile applications and designing interactive user interfaces. This is also my personal website.",
-                              backgroundColor: Color.fromARGB(255, 27, 27, 31),
-                              descriptionFontSize: 9,
-                              width: screenWidth * 0.9,
-                              height: 180,
+                  Viweskills(),
+                  Gap(50),
+                  Text(
+                    'Projects',
+                    style: TextStyle(color: Colors.white, fontSize: 30),
+                  ),
+                  Gap(20),
+                  Stack(
+                    children: [
+                      // الخلفية مع حدود أنيقة
+                      Container(
+                        width: 800,
+                        height: 400,
+                        decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 27, 27, 31),
+                          borderRadius: BorderRadius.circular(25),
+                          border: Border.all(
+                            color: Colors.blue.withOpacity(0.3),
+                            width: 1,
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.blue.withOpacity(0.1),
+                              blurRadius: 20,
+                              spreadRadius: 2,
+                              offset: Offset(0, 10),
                             ),
                           ],
-                        );
-                      } else if (isTablet) {
-                        // للآيباد - عمودي
-                        return Column(
-                          children: [
-                            SkillCard(
-                              icon: FontAwesomeIcons.database,
-                              title: "SQL Server",
-                              description:
-                                  "I have experience in SQL Server, including designing tables and relationships, writing queries and stored procedures, using SSMS to manage databases, and integrating them with .NET applications.",
-                              backgroundColor: Color.fromARGB(255, 27, 27, 31),
-                              descriptionFontSize: 9,
-                              width: screenWidth * 0.8,
-                              height: 200,
-                            ),
-                            Gap(20),
-                            SkillCard(
-                              icon: FontAwesomeIcons.code,
-                              title: "C# .NET",
-                              description:
-                                  "I have experience in C# .NET, including building desktop applications, working with ASP.NET and Web API, using for data access, and integrating with SQL Server databases.",
-                              backgroundColor: Color.fromARGB(255, 27, 27, 31),
-                              descriptionFontSize: 9,
-                              width: screenWidth * 0.8,
-                              height: 200,
-                            ),
-                            Gap(20),
-                            SkillCard(
-                              icon: FontAwesomeIcons.mobileButton,
-                              title: "Flutter & Dart",
-                              description:
-                                  "I have basic experience in Flutter and Dart, including developing cross-platform mobile applications and designing interactive user interfaces. This is also my personal website.",
-                              backgroundColor: Color.fromARGB(255, 27, 27, 31),
-                              descriptionFontSize: 9,
-                              width: screenWidth * 0.8,
-                              height: 200,
-                            ),
-                          ],
-                        );
-                      } else if (isMediumScreen) {
-                        // للشاشات المتوسطة (900-1024) - صفين: اثنان فوق وواحد تحت
-                        return Column(
-                          children: [
-                            // الصف الأول: بطاقتين
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SkillCard(
-                                  icon: FontAwesomeIcons.database,
-                                  title: "SQL Server",
-                                  description:
-                                      "I have experience in SQL Server, including designing tables and relationships, writing queries and stored procedures, using SSMS to manage databases, and integrating them with .NET applications.",
-                                  backgroundColor: Color.fromARGB(
-                                    255,
-                                    27,
-                                    27,
-                                    31,
-                                  ),
-                                  descriptionFontSize: 10,
-                                  width: (screenWidth - 200) / 2,
-                                  height: 220,
-                                ),
-                                Gap(20),
-                                SkillCard(
-                                  icon: FontAwesomeIcons.code,
-                                  title: "C# .NET",
-                                  description:
-                                      "I have experience in C# .NET, including building desktop applications, working with ASP.NET and Web API, using for data access, and integrating with SQL Server databases.",
-                                  backgroundColor: Color.fromARGB(
-                                    255,
-                                    27,
-                                    27,
-                                    31,
-                                  ),
-                                  descriptionFontSize: 10,
-                                  width: (screenWidth - 200) / 2,
-                                  height: 220,
-                                ),
-                              ],
-                            ),
-                            Gap(20),
-                            // الصف الثاني: بطاقة واحدة في المركز
-                            SkillCard(
-                              icon: FontAwesomeIcons.mobileButton,
-                              title: "Flutter & Dart",
-                              description:
-                                  "I have basic experience in Flutter and Dart, including developing cross-platform mobile applications and designing interactive user interfaces. This is also my personal website.",
-                              backgroundColor: Color.fromARGB(255, 27, 27, 31),
-                              descriptionFontSize: 10,
-                              width: (screenWidth - 60) / 2,
-                              height: 220,
-                            ),
-                          ],
-                        );
-                      } else {
-                        // للشاشات الكبيرة (1024+) - ثلاثة بطاقات في صف واحد
-                        return Column(
-                          children: [
-                            Center(
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  SkillCard(
-                                    icon: FontAwesomeIcons.database,
-                                    title: "SQL Server",
-                                    description:
-                                        "I have experience in SQL Server, including designing tables and relationships, writing queries and stored procedures, using SSMS to manage databases, and integrating them with .NET applications.",
-                                    backgroundColor: Color.fromARGB(
-                                      255,
-                                      27,
-                                      27,
-                                      31,
-                                    ),
-                                    descriptionFontSize: 11,
-                                    width: 340,
-                                    height: 240,
-                                  ),
-                                  Gap(20),
-                                  SkillCard(
-                                    icon: FontAwesomeIcons.code,
-                                    title: "C# .NET",
-                                    description:
-                                        "I have experience in C# .NET, including building desktop applications, working with ASP.NET and Web API, using for data access, and integrating with SQL Server databases.",
-                                    backgroundColor: Color.fromARGB(
-                                      255,
-                                      27,
-                                      27,
-                                      31,
-                                    ),
-                                    descriptionFontSize: 11,
-                                    width: 340,
-                                    height: 240,
-                                  ),
-                                  Gap(20),
-                                  SkillCard(
-                                    icon: FontAwesomeIcons.mobileButton,
-                                    title: "Flutter & Dart",
-                                    description:
-                                        "I have basic experience in Flutter and Dart, including developing cross-platform mobile applications and designing interactive user interfaces. This is also my personal website.",
-                                    backgroundColor: Color.fromARGB(
-                                      255,
-                                      27,
-                                      27,
-                                      31,
-                                    ),
-                                    descriptionFontSize: 11,
-                                    width: 340,
-                                    height: 240,
-                                  ),
-                                ],
+                        ),
+                      ),
+                      Positioned(
+                        top: 50,
+                        right: 70,
+                        child: Text(
+                          'Clinic Project',
+                          style: TextStyle(color: Colors.white, fontSize: 30),
+                        ),
+                      ),
+                      Positioned(
+                        top: 110,
+                        right: 25,
+                        child: Text(
+                          'The project involves adding, editing, and \ndeleting a patient, booking an appointment \nwith a doctor, administering a medication \ndose, adding, editing, and deleting a \ndoctor, adding an employee, and also \nincludes editing and deleting with special \npermissions for doctors and employees, \nprivacy, as well as payment and booking.',
+                          style: TextStyle(color: Colors.white, fontSize: 14),
+                        ),
+                      ),
+                      // الصورة مع تأثير ظل وإطار
+                      Positioned(
+                        left: 30,
+                        top: 50,
+                        child: Container(
+                          width: 440,
+                          height: 300,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.blue.withOpacity(0.2),
+                                blurRadius: 25,
+                                offset: Offset(0, 10),
                               ),
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.3),
+                                blurRadius: 15,
+                                offset: Offset(0, 5),
+                              ),
+                            ],
+                          ),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(20),
+                            child: Image.asset(
+                              'assets/istockphoto.jpg',
+                              fit: BoxFit.cover,
                             ),
-                          ],
-                        );
-                      }
-                    },
+                          ),
+                        ),
+                      ),
+
+                      // إطار زخرفي للصورة
+                      Positioned(
+                        left: 25,
+                        top: 45,
+                        child: Container(
+                          width: 450,
+                          height: 310,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(25),
+                            border: Border.all(
+                              color: Colors.blue.withOpacity(0.5),
+                              width: 2,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
