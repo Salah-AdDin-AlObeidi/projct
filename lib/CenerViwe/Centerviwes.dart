@@ -156,7 +156,7 @@ class Centerviwes extends StatelessWidget {
           end: Alignment.bottomCenter,
           colors: [
             Color.fromARGB(255, 27, 27, 31),
-            Color.fromARGB(255, 19, 18, 18),
+            Color.fromARGB(255, 14, 13, 13),
           ],
         ),
         borderRadius: BorderRadius.circular(20),

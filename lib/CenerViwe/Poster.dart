@@ -58,40 +58,44 @@ class Subtract2Dimensions {
   double get left {
     final width = MediaQuery.of(context).size.width;
 
-    if (width >= 800 && width <= 1999) {
-      return width * 0.55; // 75% للشاشات الطويلة
-    } else if (Responsive.isDesktop(context)) {
-      return width * 0.52; // 70%
+    if (Responsive.isDesktop(context)) {
+      return width * 0.64; // 70% للشاشات الكبيرة
     } else if (Responsive.isTablet(context)) {
-      return width * 0.50; // 80%
+      return width * 0.65; // 62% للتابلت
+    } else if (width >= 800 && width <= 1999) {
+      return width * 0.64; // 64% للشاشات المتوسطة
     } else {
-      return width * 0.50; // 80% - mobile
+      return width * 0.54; // 54% للموبايل
     }
   }
 
   double get height {
     final height = MediaQuery.of(context).size.height;
-    if (height >= 800 && height <= 1999) {
-      return 55; // ارتفاع للشاشات الطويلة
-    } else if (Responsive.isDesktop(context)) {
+    final width = MediaQuery.of(context).size.width;
+
+    if (Responsive.isDesktop(context)) {
       return 45;
     } else if (Responsive.isTablet(context)) {
       return 40;
+    } else if (width >= 800 && width <= 1999) {
+      return 55;
     } else {
-      return 35; // mobile
+      return 35;
     }
   }
 
   double get top {
     final height = MediaQuery.of(context).size.height;
-    if (height >= 800 && height <= 1999) {
-      return height * 0.60; // 15% للشاشات الطويلة
-    } else if (Responsive.isDesktop(context)) {
-      return height * 0.40; // 12%
+    final width = MediaQuery.of(context).size.width;
+
+    if (Responsive.isDesktop(context)) {
+      return height * 0.46;
     } else if (Responsive.isTablet(context)) {
-      return height * 0.40; // 10%
+      return height * 0.41;
+    } else if (width >= 800 && width <= 1999) {
+      return height * 0.66;
     } else {
-      return height * 0.35; // 8% - mobile
+      return height * 0.32;
     }
   }
 }
