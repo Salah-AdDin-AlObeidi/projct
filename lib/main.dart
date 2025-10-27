@@ -3,7 +3,7 @@ import 'package:flutter_gap/flutter_gap.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mywebsite/CenerViwe/Centerviwes.dart';
 import 'package:mywebsite/CenerViwe/Poster.dart';
-import 'package:mywebsite/CenerViwe/Skills/Skills.dart';
+
 import 'package:mywebsite/CenerViwe/Skills/ViweSkills/ViweSkills.dart';
 import 'package:mywebsite/CenerViwe/TextsCenter.dart';
 
@@ -398,6 +398,162 @@ class MyApp extends StatelessWidget {
                         },
                       ),
                     ],
+                  ),
+                  Gap(70),
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'telegram',
+                        style: TextStyle(color: Colors.white, fontSize: 30),
+                      ),
+                      Gap(10),
+                      FaIcon(
+                        FontAwesomeIcons.telegram,
+                        color: Color(0xFF0088CC), // اللون الأزرق للتليجرام
+                        size: 40, // حجم أصغر
+                      ),
+                    ],
+                  ),
+                  Gap(30),
+                  Container(
+                    width: 200,
+                    height: 200,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(20),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.1),
+                          blurRadius: 15,
+                          spreadRadius: 2,
+                          offset: Offset(0, 5),
+                        ),
+                        BoxShadow(
+                          color: Colors.blue.withOpacity(0.05),
+                          blurRadius: 10,
+                          spreadRadius: 1,
+                          offset: Offset(0, 2),
+                        ),
+                      ],
+                      gradient: LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        colors: [Colors.white, Color(0xFFF8FAFF)],
+                      ),
+                      border: Border.all(
+                        color: Colors.grey.withOpacity(0.2),
+                        width: 1,
+                      ),
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.blue.withOpacity(0.1),
+                              blurRadius: 10,
+                              offset: Offset(0, 3),
+                            ),
+                          ],
+                        ),
+                        child: Image.asset(
+                          'assets/code.png',
+                          frameBuilder:
+                              (
+                                BuildContext context,
+                                Widget child,
+                                int? frame,
+                                bool? wasSynchronouslyLoaded,
+                              ) {
+                                if (wasSynchronouslyLoaded == true ||
+                                    frame != null) {
+                                  return Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Colors.blue.withOpacity(0.1),
+                                          blurRadius: 8,
+                                          spreadRadius: 1,
+                                          offset: Offset(0, 2),
+                                        ),
+                                      ],
+                                    ),
+                                    child: child,
+                                  );
+                                }
+                                return Container(
+                                  decoration: BoxDecoration(
+                                    color: Colors.grey[50],
+                                    borderRadius: BorderRadius.circular(20),
+                                  ),
+                                  child: Center(
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        CircularProgressIndicator(
+                                          valueColor:
+                                              AlwaysStoppedAnimation<Color>(
+                                                Colors.blue,
+                                              ),
+                                          strokeWidth: 2,
+                                        ),
+                                        SizedBox(height: 10),
+                                        Text(
+                                          'جاري التحميل...',
+                                          style: TextStyle(
+                                            color: Colors.grey[600],
+                                            fontSize: 12,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                );
+                              },
+                          fit: BoxFit.contain,
+                          errorBuilder: (context, error, stackTrace) {
+                            return Container(
+                              decoration: BoxDecoration(
+                                color: Colors.grey[100],
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.image_not_supported_outlined,
+                                    color: Colors.grey[400],
+                                    size: 40,
+                                  ),
+                                  SizedBox(height: 8),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        'الصورة غير متوفرة',
+                                        style: TextStyle(
+                                          color: Colors.grey[500],
+                                          fontSize: 12,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 8,
+                                      ), // مسافة بين النص والأيقونة
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                    ),
                   ),
                 ],
               ),
