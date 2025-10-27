@@ -180,6 +180,25 @@ class MyApp extends StatelessWidget {
                                       borderRadius: BorderRadius.circular(20),
                                       child: Image.asset(
                                         'assets/istockphoto.jpg',
+                                        frameBuilder:
+                                            (
+                                              BuildContext context,
+                                              Widget child,
+                                              int? frame,
+                                              bool? wasSynchronouslyLoaded,
+                                            ) {
+                                              // If the image was loaded synchronously or a frame is available, show the image.
+                                              if (wasSynchronouslyLoaded ==
+                                                      true ||
+                                                  frame != null) {
+                                                return child;
+                                              }
+                                              // Otherwise show a loading indicator until the first frame is rendered.
+                                              return Center(
+                                                child:
+                                                    CircularProgressIndicator(),
+                                              );
+                                            },
                                         fit: BoxFit.cover,
                                       ),
                                     ),
@@ -247,6 +266,25 @@ class MyApp extends StatelessWidget {
                                           ),
                                           child: Image.asset(
                                             'assets/istockphoto.jpg',
+                                            frameBuilder:
+                                                (
+                                                  BuildContext context,
+                                                  Widget child,
+                                                  int? frame,
+                                                  bool? wasSynchronouslyLoaded,
+                                                ) {
+                                                  // If the image was loaded synchronously or a frame is available, show the image.
+                                                  if (wasSynchronouslyLoaded ==
+                                                          true ||
+                                                      frame != null) {
+                                                    return child;
+                                                  }
+                                                  // Otherwise show a loading indicator until the first frame is rendered.
+                                                  return Center(
+                                                    child:
+                                                        CircularProgressIndicator(),
+                                                  );
+                                                },
                                             fit: BoxFit.cover,
                                           ),
                                         ),
@@ -314,6 +352,25 @@ class MyApp extends StatelessWidget {
                                           ),
                                           child: Image.asset(
                                             'assets/istockphoto.jpg',
+                                            frameBuilder:
+                                                (
+                                                  BuildContext context,
+                                                  Widget child,
+                                                  int? frame,
+                                                  bool? wasSynchronouslyLoaded,
+                                                ) {
+                                                  // If the image was loaded synchronously or a frame is available, show the image.
+                                                  if (wasSynchronouslyLoaded ==
+                                                          true ||
+                                                      frame != null) {
+                                                    return child;
+                                                  }
+                                                  // Otherwise show a loading indicator until the first frame is rendered.
+                                                  return Center(
+                                                    child:
+                                                        CircularProgressIndicator(),
+                                                  );
+                                                },
                                             fit: BoxFit.cover,
                                           ),
                                         ),
